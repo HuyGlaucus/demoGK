@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Details</title>
+</head>
+<body>
+
+<h1>Candidate Details</h1>
+
+<div th:object="${candidate}">
+    <p><strong>ID:</strong> <span th:text="${candidate.id}"></span></p>
+    <p><strong>Full Name:</strong> <span th:text="${candidate.fullName}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${candidate.email}"></span></p>
+    <p><strong>Phone:</strong> <span th:text="${candidate.phone}"></span></p>
+
+    <h2>Experiences</h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Work Description</th>
+            <th>Company</th>
+            <th>Role</th>
+            <th>From Date</th>
+            <th>To Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="experience : ${candidate.experiences}">
+            <td th:text="${experience.id}"></td>
+            <td th:text="${experience.workDescription}"></td>
+            <td th:text="${experience.companyName}"></td>
+            <td th:text="${experience.role}"></td>
+            <td th:text="${experience.fromDate}"></td>
+            <td th:text="${experience.toDate}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

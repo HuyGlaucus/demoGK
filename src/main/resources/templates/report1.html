@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Developer Report</title>
+</head>
+<body>
+
+<h2>Developer Report</h2>
+
+<form action="/report" method="get">
+    <label for="companyName">Enter Company Name:</label>
+    <input type="text" id="companyName" name="companyName" required>
+    <button type="submit">Generate Report</button>
+</form>
+
+<br>
+
+<!-- Display the result here -->
+<div th:if="${candidates != null}">
+    <h3>Results:</h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="candidate : ${candidates}">
+            <td th:text="${candidate.id}"></td>
+            <td th:text="${candidate.fullName}"></td>
+            <td th:text="${candidate.email}"></td>
+            <td th:text="${candidate.phone}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

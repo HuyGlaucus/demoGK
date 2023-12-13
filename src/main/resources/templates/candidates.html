@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidate List</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="candidate : ${candidates}">
+        <td th:text="${candidate.id}"></td>
+        <td th:text="${candidate.fullName}"></td>
+        <td th:text="${candidate.email}"></td>
+        <td th:text="${candidate.phone}"></td>
+        <td>
+            <a th:href="@{/cand_details(id=${candidate.id})}">View Details</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

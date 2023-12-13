@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Experience Report</title>
+</head>
+<body>
+
+<h2>Experience Report</h2>
+
+<!-- Display the result here -->
+<div th:if="${experiencedCandidates != null}">
+    <h3>Results:</h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Experience</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="candidate : ${experiencedCandidates}">
+            <td th:text="${candidate.id}"></td>
+            <td th:text="${candidate.fullName}"></td>
+            <td th:text="${candidate.email}"></td>
+            <td th:text="${candidate.phone}"></td>
+            <td th:text="${candidate.experience}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
